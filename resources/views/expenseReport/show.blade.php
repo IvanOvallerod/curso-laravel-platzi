@@ -12,26 +12,32 @@
 <body>
     <div class="row">
         <div class="col">
-            <h1>Reports</h1>
+            <h1>Report {{ $report->title }}</h1>
         </div>
     </div>        
     <div class="row">
         <div class="col">
-            <a class="btn btn-primary" href="{!! url('/expense_reports/create') !!}">Create a new report</a>
+            <a class="btn btn-secondary" href="{!! url('/expense_reports') !!}">Back</a>
         </div>
     </div>
     <div class="row">
         <div class="col">
+            <h3>Detalles...</h3>
             <table class="table">
-                @foreach($ExpenseReports as $expenseReport)
+                @foreach($report->expenses as $expense)
                     <tr>
-                        <!-- <td> {{ $expenseReport->title }} </td> -->
-                        <td><a href="{{ url("/expense_reports/".$expenseReport->id) }}" >{{$expenseReport->title}}</a></td>
-                        <td><a href="{{ url("/expense_reports/".$expenseReport->id."/edit") }}" >EDIT</a></td>
-                        <td><a href="{{ url("/expense_reports/".$expenseReport->id."/confirmDelete") }}" >DELETE</a></td>
+                        <td>{{ $expense->description }}</td>
+                        <td>{{ $expense->created_at }}</td>
+                        <td>{{ $expense->amount }}</td>
+                        
                     </tr>
                 @endforeach
             </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary" href="{{ url("/expense_reports/".$report->id."/expenses/create") }}"">Add new expense</a>
         </div>
     </div>
 </body>

@@ -22,6 +22,11 @@
     </div>
     <div class="row">
         <div class="col">
+            <a class="btn btn-warning" href="{!! url('/expense_reports/'. $report->id.'/confirmSendMail') !!}">Send mail</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <h3>Detalles...</h3>
             <table class="table">
                 @foreach($report->expenses as $expense)

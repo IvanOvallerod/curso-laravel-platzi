@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Expense;
+use App\Models\ExpenseReport;
 
 class ExpenseController extends Controller
 {
@@ -23,7 +25,7 @@ class ExpenseController extends Controller
      */
     public function create(ExpenseReport $expenseReport)
     {
-        return view('expense.create', [
+        return view('expense.create' ,[
             'report' => $expenseReport
         ]);
     }
@@ -34,9 +36,30 @@ class ExpenseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, ExpenseReport $expenseReport)
     {
-        dd($request->all);
+        $expense = new Expense();
+        $expense->description = $request->get('description');
+        $expense->amount = $request->get('amount');
+        $expense->expense_report_id = $expenseReport->id;
+        $expense->save();
+
+
+        /*$validator = $request->validate([
+            'description' => 'required|min:3',
+            'amount' => 'required|min:2|integer',
+        ]);
+
+        $expense = new Expense();
+        
+        //$report->title = $validData['title'];
+        $expense->description = $validator->get['description'];
+        $expense->amount = $validator->get['amount'];
+        $expense->expense_report_id = $expenseReport->id;
+
+        $expense->save();*/
+
+        return redirect('/expense_reports/'. $expenseReport->id);
     }
 
     /**

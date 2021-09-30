@@ -37,7 +37,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <a class="btn btn-primary" href="{{ url("/expense_reports/".$report->id."/expenses/create") }}"">Add new expense</a>
+            <a class="btn btn-primary" href="{{ url("/expense_reports/".$report->id."/expenses/create") }}">Add new expense</a>
         </div>
     </div>
 </body>

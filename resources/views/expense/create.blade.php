@@ -17,7 +17,7 @@
     </div>        
     <div class="row">
         <div class="col">
-            <a class="btn btn-secondary" href="{!! url('/expense_reports/'. $report->id) !!}">Back</a>
+            <a class="btn btn-secondary" href="{{ url("/expense_reports/".$report->id) }}">Back</a>
         </div>
     </div>
     <div class="row">
@@ -31,7 +31,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="{!! url('/expense_reports/'. $report->id).'/expenses') !!}" method="POST">
+            <form action="{{ url("/expense_reports/".$report->id."/expenses") }}"" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="title">Description:</label>

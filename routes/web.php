@@ -29,6 +29,14 @@ Route::get('/expense_reports/{id}/confirmDelete', [ExpenseReportController::clas
 
 Route::get('/expense_reports/{expense_report}/expenses/create', [ExpenseController::class, 'create']);
 Route::post('/expense_reports/{expense_report}/expenses', [ExpenseController::class, 'store']);
+
+//Route::get('/expense_reports/{expense_report}/expenses/create', 'App\Http\Controllers\ExpenseController@create')->name('create');
+//Route::get('/expense_reports/{expense_report}/expenses/', 'App\Http\Controllers\ExpenseController@store')->name('store');
+
+
+
+//Route::get('/expense_reports/{expense_report}/expenses/create', [ExpenseController::class, 'create']);
+//Route::post('/expense_reports/{expense_report}/expenses', [ExpenseController::class, 'store']);
 //Route::get('/expense_reports/{expense_report}/expenses/create', 'ExpenseController@create');
 //Route::post('/expense_reports/{expense_report}/expenses', 'ExpenseController@store');
 

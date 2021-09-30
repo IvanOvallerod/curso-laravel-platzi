@@ -20,7 +20,11 @@ use \App\Http\Controllers\ExpenseController;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-;
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\ExpenseReportController::class, 'index'])->name('home');
+
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/test', [DashboardController::class, 'index']);
 
@@ -49,3 +53,4 @@ Route::post('/expense_reports/{expense_report}/expenses', [ExpenseController::cl
         'title' => 'CURSO LARAVEL PLATZI' 
     ]);
 });*/
+
